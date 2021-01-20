@@ -1,0 +1,30 @@
+{ 
+    "manifest_version":2, 
+    "name":"udemy popup remover", 
+    "version":"1.0",
+    "description":"removes the memo noted popup from udemy player", 
+    "icons":{
+     "128":"128.png", "48":"48.png", "16":"16.png"}, 
+    "page_action":{
+        "default_icon":"16.png", 
+        "default_popup":"popup.html", 
+        "default_title":"UdemyPopupRemover"
+    },
+
+    "background": {
+        "scripts":["eventPage.js"],
+        "persistent":false
+    },
+
+    "content_scripts":[
+        {
+            "matches":["https://www.udemy.com/*"],
+            "js":["content.js", "jquery.js"],
+            "css":["content.css"]
+        }
+    ],
+    "permissions":[
+        "tabs",
+        "https://www.udemy.com/*"
+    ]
+}
